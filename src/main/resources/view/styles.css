@@ -1,0 +1,198 @@
+/* ==================================================================== */
+/* 1. COLOR & FONT VARIABLES (ROOT DEFINITIONS)                         */
+/* ==================================================================== */
+.root {
+    /* Color Palette */
+    -flup-bg-body: #f5f7f9;     /* Light grey background for the main area */
+    -flup-bg-white: #ffffff;    /* White for cards and sidebar */
+    -flup-green: #38c172;       /* Primary Accent Green */
+    -flup-dark-text: #3d4852;   /* Dark Grey for Primary Text */
+    -flup-light-text: #9aa8b8;  /* Light Blue-Grey for Subtitles/Inactives */
+    -flup-border: #e3e8ee;      /* Very Light Grey Border/Separator */
+    -flup-bg-active: #e6f6ec;   /* Very Light Green for Active Backgrounds */
+
+    /* Font Family */
+    -fx-font-family: "Arial", "Roboto", "System";
+}
+
+/* ==================================================================== */
+/* 2. GLOBAL LAYOUT AND BACKGROUNDS                                     */
+/* ==================================================================== */
+
+.main-content-scrollpane {
+    -fx-background-color: -flup-bg-body;
+    -fx-border-color: transparent; /* Remove scroll pane border */
+}
+
+.main-content-container {
+    -fx-padding: 30;
+}
+
+/* ==================================================================== */
+/* 3. SIDEBAR STYLING (LEFT)                                            */
+/* ==================================================================== */
+.sidebar {
+    -fx-background-color: -flup-bg-white;
+    -fx-border-color: -flup-border;
+    -fx-border-width: 0 1 0 0; /* Only right border */
+    -fx-padding: 20 15 20 15;
+}
+
+.logo-text {
+    -fx-font-size: 24pt;
+    -fx-font-weight: bold;
+    -fx-text-fill: -flup-dark-text;
+    -fx-padding: 0 0 20 0;
+}
+
+.group-header {
+    -fx-font-size: 8pt;
+    -fx-font-weight: bold;
+    -fx-text-fill: -flup-light-text;
+    -fx-padding: 10 0 5 0;
+}
+
+/* Sidebar Menu Buttons */
+.sidebar-button, .sidebar-button-active {
+    -fx-background-color: transparent;
+    -fx-text-fill: -flup-dark-text;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 11pt;
+    -fx-pref-width: 200;
+    -fx-padding: 10 15;
+    -fx-background-radius: 5px;
+}
+
+.sidebar-button-active {
+    -fx-background-color: -flup-bg-active;
+    -fx-text-fill: -flup-green;
+    -fx-font-weight: bold;
+}
+
+/* User Info at Bottom */
+.sidebar-user-info {
+    -fx-padding: 15 0 0 0;
+    -fx-border-color: -flup-border;
+    -fx-border-width: 1 0 0 0; /* Top separator line */
+}
+
+.user-avatar-placeholder {
+    -fx-background-color: -flup-light-text; /* Placeholder color */
+    -fx-background-radius: 50%;
+}
+
+.user-name {
+    -fx-font-weight: bold;
+    -fx-font-size: 10pt;
+}
+.user-role {
+    -fx-text-fill: -flup-light-text;
+    -fx-font-size: 9pt;
+}
+
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -flup-light-text;
+    -fx-padding: 5 0;
+    -fx-font-size: 10pt;
+}
+
+/* ==================================================================== */
+/* 4. TRACKING HEADER AND TABS (CENTER TOP)                             */
+/* ==================================================================== */
+
+.header-title {
+    -fx-font-size: 18pt;
+    -fx-font-weight: bold;
+    -fx-text-fill: -flup-dark-text;
+}
+
+.header-subtitle {
+    -fx-font-size: 12pt;
+    -fx-text-fill: -flup-light-text;
+}
+
+.add-track-button {
+    -fx-background-color: -flup-green;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 15;
+    -fx-background-radius: 5px;
+}
+
+.status-tab, .status-tab-active {
+    -fx-background-color: -flup-bg-white;
+    -fx-text-fill: -flup-dark-text;
+    -fx-padding: 8 15;
+    -fx-background-radius: 5px;
+    -fx-border-color: -flup-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 5px;
+}
+
+.status-tab-active {
+    -fx-background-color: -flup-green;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-color: -flup-green;
+}
+
+/* Search and Filter Bar */
+.search-field {
+    -fx-background-color: -flup-bg-white;
+    -fx-border-color: -flup-border;
+    -fx-border-width: 1;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10 15;
+}
+
+.filter-button {
+    -fx-background-color: -flup-bg-white;
+    -fx-text-fill: -flup-dark-text;
+    -fx-border-color: -flup-border;
+    -fx-border-width: 1;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10 15;
+}
+
+
+/* ==================================================================== */
+/* 5. TRACKING CARD STYLING (FOR CARD.FXML)                             */
+/* ==================================================================== */
+
+.tracking-card {
+    -fx-background-color: -flup-bg-white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 1); /* Subtle shadow */
+    -fx-border-color: -flup-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 10px;
+}
+
+.card-header {
+    -fx-padding: 0 0 10 0;
+    -fx-border-color: -flup-border;
+    -fx-border-width: 0 0 1 0;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.status-label-on-route {
+    -fx-background-color: -flup-bg-active;
+    -fx-text-fill: -flup-green;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10;
+    -fx-background-radius: 5px;
+    -fx-font-size: 10pt;
+}
+
+.time-left-label {
+    -fx-text-fill: -flup-light-text;
+    -fx-font-size: 10pt;
+}
+
+.tracking-id {
+    -fx-font-size: 14pt;
+    -fx-font-weight: bold;
+    -fx-
