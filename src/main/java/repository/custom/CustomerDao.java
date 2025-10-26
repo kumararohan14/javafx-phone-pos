@@ -1,4 +1,7 @@
 package repository.custom;
 
-public interface CustomerDao {
+import model.Customer;
+import repository.CrudRepository;
+
+public interface CustomerDao extends CrudRepository<Customer,String> {
 }
