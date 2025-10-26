@@ -29,16 +29,17 @@
             <VBox spacing="5" styleClass="sidebar-menu-group">
                 <Label styleClass="group-header" text="ORDERS" />
                 <Button styleClass="sidebar-button" text="Orders" />
-                <Button styleClass="sidebar-button-active" text="Tracking" /> <Button styleClass="sidebar-button" text="Customers" />
+                <Button styleClass="sidebar-button-active" text="Tracking" /> <Button onAction="#btnvVewCustomerOnAction" styleClass="sidebar-button" text="Customers" />
                 <Button styleClass="sidebar-button" text="Discounts" />
                 <Button layoutX="10.0" layoutY="44.0" styleClass="sidebar-button" text="POS" />
+            <Button layoutX="10.0" layoutY="44.0" onAction="#btnViewItemOnAction" styleClass="sidebar-button" text="Item" />
             </VBox>
 
             <VBox VBox.vgrow="ALWAYS" /> <VBox styleClass="sidebar-user-info">
             <HBox alignment="CENTER_LEFT" spacing="10">
                 <Region prefHeight="30" prefWidth="30" styleClass="user-avatar-placeholder" />
                 <VBox>
-                    <Label styleClass="user-name" text="Harper Nelson" />
+                    <Label styleClass="user-name" text="Pradeep Rathnayaka" />
                     <Label styleClass="user-role" text="Admin Manager" />
                 </VBox>
             </HBox>
@@ -50,6 +51,6 @@
         </VBox>
     </left>
     <center>
-        <AnchorPane fx:id="root" prefHeight="660.0" prefWidth="441.0" BorderPane.alignment="CENTER" />
+        <AnchorPane fx:id="root" maxHeight="660.0" maxWidth="800.0" minHeight="660.0" minWidth="800.0" prefHeight="660.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
     </center>
 </BorderPane>
