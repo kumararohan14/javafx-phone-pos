@@ -30,16 +30,21 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public Customer searchId(String id) throws SQLException {
-        return CrudUtil.execute("UPDATE customer SET name = ?, address = ?,salary = ? WHERE id =?",id);
+        ResultSet resultSet = CrudUtil.execute("SELECT * FROM customer WHERE id =?", id);
+     resultSet.next() ;
+        Customer customer = new Customer(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), Double.parseDouble(resultSet.getString(4)));
+        return customer;
     }
 
     @Override
     public boolean remove(String id) throws SQLException {
        return CrudUtil.execute("DELETE FROM Customer WHERE id = ?",id);
+
     }
 
     @Override
     public boolean update(Customer customer) throws SQLException {
         return CrudUtil.execute("UPDATE customer SET name = ?, address = ?,salary = ? WHERE id = ?",customer.getName(),customer.getAddress(),customer.getSalary(),customer.getId());
     }
+
 }
