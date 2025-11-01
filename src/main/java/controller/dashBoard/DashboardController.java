@@ -49,4 +49,18 @@ public class DashboardController {
             throw new RuntimeException(e);
         }
     }
+
+    public void btnViewOrderFormOnAcction(ActionEvent actionEvent) {
+        URL resource = this.getClass().getResource("/view/order-form.fxml");
+        assert resource != null;
+
+        try {
+            Parent load = FXMLLoader.load(resource);
+            this.root.getChildren().clear();
+            this.root.getChildren().add(load);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

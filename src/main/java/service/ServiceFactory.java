@@ -3,6 +3,7 @@ package service;
 import repository.custom.impl.CustomerDaoImpl;
 import repository.custom.impl.ItemDaoImpl;
 import service.custom.impl.CustomerServiceImpl;
+
 import service.custom.impl.ItemServiceImpl;
 import util.ServiceType;
 
@@ -17,6 +18,7 @@ public class ServiceFactory {
         switch (type){
             case CUSTOMER : return (T) new CustomerServiceImpl();
             case ITEM:return (T) new ItemServiceImpl();
+
         }
         return null;
     }

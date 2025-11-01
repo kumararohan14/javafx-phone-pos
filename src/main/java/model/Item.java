@@ -4,15 +4,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
+import java.time.LocalDate;
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Item {
-
-    // Fields (same as table columns)
-    private String code;          // VARCHAR(6)
-    private String description;   // VARCHAR(50)
-    private double unitPrice;     // DECIMAL(8,2)
+    private String code;
+    private String description;
+    private String category;
+    private String brand;
+    private String supplierId;
+    private double costPrice;
+    private double unitPrice;
     private int qtyOnHand;
-
+    private int reorderLevel;
+    private String location;
+    private LocalDate productionDate;
+    private String warrantyPeriod;
+    private String status;
 }
