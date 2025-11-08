@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="660.0" maxWidth="1152.0" minHeight="660.0" minWidth="800.0" prefHeight="660.0" prefWidth="1152.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.customer.CustomerFormController">
+    <children>
+        <TextField fx:id="txtId" layoutX="157.0" layoutY="86.0" promptText="Id" />
+        <Button layoutX="842.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnSearchCustomerOnAction" styleClass="myButton" stylesheets="@styles.css" text="Search" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4cad5a" height="55.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1152.0" />
+        <Label fx:id="lblTop" layoutX="293.0" layoutY="8.0" text="Customer Form" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="26.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtName" layoutX="332.0" layoutY="86.0" prefHeight="26.0" prefWidth="209.0" promptText="Name" />
+        <TextField fx:id="txtSalary" layoutX="750.0" layoutY="86.0" promptText="Salary" />
+        <TextField fx:id="txtAddress" layoutX="578.0" layoutY="86.0" promptText="Address" />
+        <TableView fx:id="tblCustomers" layoutX="125.0" layoutY="196.0" prefHeight="314.0" prefWidth="949.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="85.33331298828125" text="Id" />
+                <TableColumn fx:id="colName" prefWidth="172.66665649414062" text="Name" />
+                <TableColumn fx:id="colAddress" prefWidth="164.0" text="Address" />
+                <TableColumn fx:id="colSalary" prefWidth="152.0" text="Salary" />
+            </columns>
+        </TableView>
+        <Button layoutX="959.0" layoutY="532.0" mnemonicParsing="false" onAction="#btnLoadTableOnAction" prefHeight="38.0" prefWidth="150.0" styleClass="myButton" stylesheets="@styles.css" text="Load" />
+      <Button layoutX="728.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnDeleteCustomerOnAction" styleClass="myButton" stylesheets="@styles.css" text="Delete" />
+      <Button layoutX="616.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnUpdateCustomerOnAction" styleClass="myButton" stylesheets="@styles.css" text="Update" />
+      <Button layoutX="510.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnAddCustomerOnAction" styleClass="myButton" stylesheets="@styles.css" text="Add" />
+    </children>
+</AnchorPane>

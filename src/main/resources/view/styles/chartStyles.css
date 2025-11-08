@@ -1,0 +1,22 @@
+.chart-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.chart-legend {
+    -fx-font-size: 14px;
+}
+
+.default-color0.chart-series-area-fill {
+        -fx-fill: linear-gradient(to top, rgba(76, 175, 80, 0.3), rgba(165, 214, 167, 0.2));
+ /* green gradient */
+}
+
+.default-color0.chart-series-area-line {
+    -fx-stroke: #2E7D32; /* dark green line */
+    -fx-stroke-width: 2px;
+}
+
+.chart-plot-background {
+    -fx-background-color: #f4f4f4;
+}

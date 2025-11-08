@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,6 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 
 <BorderPane prefHeight="666.0" prefWidth="1454.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dashBoard.DashboardController">
     <stylesheets>
@@ -51,6 +56,22 @@
         </VBox>
     </left>
     <center>
-        <AnchorPane fx:id="root" maxHeight="654.0" maxWidth="1206.0" minHeight="654.0" minWidth="1069.0" prefHeight="654.0" prefWidth="1206.0" styleClass="main-pane" stylesheets="@styles.css" BorderPane.alignment="CENTER" />
+        <AnchorPane fx:id="root" maxHeight="654.0" maxWidth="1206.0" minHeight="654.0" minWidth="1069.0" prefHeight="654.0" prefWidth="1206.0" styleClass="main-pane" stylesheets="@styles.css" BorderPane.alignment="CENTER">
+         <children>
+            <AreaChart fx:id="chartsArea" layoutX="14.0" layoutY="278.0" prefHeight="296.0" prefWidth="1012.0" >
+                <xAxis>
+                    <CategoryAxis label="Month" fx:id="xAxis" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Revenue ($)" />
+                </yAxis>
+            </AreaChart>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="58.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="200.0">
+               <styleClass>
+                  <String fx:value="dashboard-card" />
+                  <String fx:value="card-green" />
+               </styleClass>
+            </Rectangle>
+         </children></AnchorPane>
     </center>
 </BorderPane>

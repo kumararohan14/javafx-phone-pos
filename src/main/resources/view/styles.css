@@ -213,4 +213,18 @@
 .tracking-id {
     -fx-font-size: 14pt;
     -fx-font-weight: bold;
-    -fx-
+    -fx-}
+
+    .dashboard-card {
+        -fx-fill: #ffffff; /* clean white */
+        -fx-stroke: transparent; /* no border */
+        -fx-arc-width: 20;
+        -fx-arc-height: 20;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 10, 0, 0, 3);
+        -fx-background-radius: 20;
+    }
+
+    .card-green {
+        -fx-fill: linear-gradient(to bottom, #e8f5e9, #ffffff);
+        -fx-effect: dropshadow(three-pass-box, rgba(76,175,80,0.25), 8, 0, 0, 2);
+    }
