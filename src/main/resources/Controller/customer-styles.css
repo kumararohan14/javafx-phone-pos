@@ -1,0 +1,151 @@
+/* ==================================================================== */
+/* CUSTOMER FORM STYLES (Based on Flup Dashboard Design)                */
+/* ==================================================================== */
+
+/* Color and Font Variables (Ensuring consistency with the Dashboard) */
+.root {
+    -flup-bg-body: #f5f7f9;     /* Light grey background */
+    -flup-bg-white: #ffffff;    /* White for primary elements */
+    -flup-green: #38c172;       /* Primary Accent Green */
+    -flup-dark-text: #3d4852;   /* Dark Grey for Primary Text */
+    -flup-light-text: #9aa8b8;  /* Light Blue-Grey for secondary/hints */
+    -flup-border: #e3e8ee;      /* Very Light Grey Border/Separator */
+    -flup-header-blue: #0c4e8b; /* Use the existing blue for the top bar (if desired) */
+    -fx-font-family: "Arial", "Roboto", "System";
+}
+
+/* 1. Main Container */
+.anchor-pane {
+    -fx-background-color: -flup-bg-body; /* Apply the light grey dashboard background */
+}
+
+/* 2. Top Header Bar (Rectangle and Label) */
+.rectangle {
+    /* Keep the original blue color but ensure smooth edges */
+    -fx-background-color: -flup-bg-active;
+        -fx-text-fill: -flup-green;
+        -fx-font-weight: bold;
+}
+
+#lblTop {
+    -fx-text-fill: -flup-bg-white; /* White text on blue background */
+    -fx-font-weight: bold;
+}
+
+/* 3. Text Fields (Matching the Search Field Style) */
+.text-field {
+    -fx-background-color: -flup-bg-white;
+    -fx-border-color: -flup-border;
+    -fx-border-width: 1;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10;
+    -fx-prompt-text-fill: -flup-light-text; /* Light text for placeholders */
+    -fx-text-fill: -flup-dark-text;
+}
+
+/* 4. Buttons (Matching the Dashboard Accent Buttons) */
+.button {
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 8 15;
+    -fx-cursor: hand;
+}
+
+/* Primary Action Button (Add Customer) - Matches the green 'Add new track' button */
+#btnAddCustomerOnAction { /* Target the specific button with its action method */
+    -fx-background-color: -flup-green;
+    -fx-text-fill: -flup-bg-white;
+}
+
+/* Secondary Button (Load Table) - Matches the white filter buttons */
+#btnLoadTableOnAction { /* Target the specific button with its action method */
+    -fx-background-color: -flup-bg-white;
+    -fx-text-fill: -flup-dark-text;
+    -fx-border-color: -flup-border;
+    -fx-border-width: 1;
+}
+
+/* 5. Table View Styling (Clean, Flat Look) */
+.table-view {
+    -fx-background-color: -flup-bg-white;
+    -fx-border-color: -flup-border;
+    -fx-border-width: 1;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-font-size: 11pt;
+
+    /* Subtle shadow like the tracking cards */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 1);
+}
+
+/* Table Header (Column Headers) */
+.table-view .column-header-background {
+    -fx-background-color: -flup-bg-white;
+    -fx-border-color: -flup-border;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -flup-dark-text;
+    -fx-font-weight: bold;
+}
+
+/* Table Cells */
+.table-cell {
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* Row Hover/Selection (Light Green accent on hover) */
+.table-row-cell:filled:hover {
+    -fx-background-color: rgba(56, 193, 114, 0.1); /* 10% opacity of the green accent */
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: rgba(56, 193, 114, 0.2); /* 20% opacity of the green accent */
+}
+.add-button {
+    -fx-background-color: red; /* Use a stark color to confirm the style is being applied */
+    -fx-text-fill: white;
+}
+.main-pane {
+    /* Set a clean white background for contrast */
+    -fx-background-color: #FFFFFF;
+}
+
+/* Keep your existing JFXTextField style,
+   which will now look much better on a white background.
+*/
+.txtId {
+    /* Main colors for the Material Design feel */
+    -jfx-focus-color: #00BCD4; /* A bright, modern cyan for focus/active state */
+    -jfx-unfocus-color: transparent; /* A subtle grey for unfocused state */
+    -fx-background-color: transparent;
+
+    /* Makes the prompt text float above the input when focused */
+    -jfx-label-float: true;
+
+    /* Set the text and background properties */
+    -fx-text-fill: #212121; /* Dark text for good contrast */
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto"; /* A popular, clean font */
+    -fx-prompt-text-fill: -jfx-unfocus-color; /* Use the unfocus color for the placeholder */
+
+    /* Remove the default border and background */
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1px 0; /* Only a subtle bottom border when unfocused */
+    -fx-border-color: -jfx-unfocus-color;
+}
+
+/* Style for when the text field is focused */
+#txtId:focused {
+    -fx-border-color: -jfx-focus-color;
+    -fx-border-width: 0 0 2px 0; /* A thicker, colored line on focus */
+}
+
+/* You might want to style the prompt text (label) as well */
+.jfx-text-field .jfx-text-field-prompt-text {
+    /* Optional: Style for the floating label */
+}
