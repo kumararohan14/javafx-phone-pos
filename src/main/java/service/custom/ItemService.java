@@ -18,4 +18,5 @@ public interface ItemService extends SuperService {
     List<String> getItemCategories() throws SQLException;
 
     List<String> getSupplierIds() throws SQLException;
+    
 }

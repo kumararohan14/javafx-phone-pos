@@ -47,6 +47,6 @@
          </font>
       </Label>
       <Label fx:id="lblTime" layoutX="1032.0" layoutY="32.0" prefHeight="18.0" prefWidth="147.0" text="00.00" textFill="WHITE" />
-      <Label fx:id="txtOrderId" layoutX="60.0" layoutY="20.0" prefHeight="18.0" prefWidth="82.0" text="D001" />
+      <JFXTextField fx:id="txtOrderId" layoutX="45.0" layoutY="16.0" prefHeight="26.0" prefWidth="147.0" promptText="name" />
    </children>
 </AnchorPane>
