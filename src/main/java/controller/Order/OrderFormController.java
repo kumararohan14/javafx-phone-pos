@@ -20,6 +20,7 @@ import service.ServiceFactory;
 import service.SuperService;
 import service.custom.CustomerService;
 import service.custom.ItemService;
+import service.custom.OrderService;
 import service.custom.impl.CustomerServiceImpl;
 import util.ServiceType;
 
@@ -34,7 +35,8 @@ import java.util.ResourceBundle;
 
 public class OrderFormController implements Initializable {
 
-    public Label txtOrderId;
+    @FXML
+    private JFXTextField txtOrderId;
     @FXML
     private JFXComboBox<String> cmbCusId;
 
@@ -91,6 +93,9 @@ public class OrderFormController implements Initializable {
 
     ArrayList<CartItem> cartItems = new ArrayList<>();
 
+    CustomerService customerService = ServiceFactory.getInstance().getServiceFactoryType(ServiceType.CUSTOMER);
+    ItemService itemService = ServiceFactory.getInstance().getServiceFactoryType(ServiceType.ITEM);
+    OrderService orderService = ServiceFactory.getInstance().getServiceFactoryType(ServiceType.ORDER);
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
         colItemId.setCellValueFactory(new PropertyValueFactory<>("code"));
@@ -116,7 +121,7 @@ public class OrderFormController implements Initializable {
     }
 
     @FXML
-    void btnPlaceOrderOnAction(ActionEvent event) {
+    void btnPlaceOrderOnAction(ActionEvent event) throws SQLException {
         String orderId = txtOrderId.getText();
         Date ordeDate = new Date();
         String custId = cmbCusId.getValue().toString();
@@ -131,10 +136,17 @@ public class OrderFormController implements Initializable {
             );
         });
         Order order = new Order(orderId, ordeDate, custId, orderDetails);
-        System.out.println(order);
+        boolean isplaced= false;
+        try {
+            isplaced = orderService.placeOrder(order);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        if (isplaced){
+
+        }
     }
-    CustomerService customerService = ServiceFactory.getInstance().getServiceFactoryType(ServiceType.CUSTOMER);
-    ItemService itemService = ServiceFactory.getInstance().getServiceFactoryType(ServiceType.ITEM);
+
     private void loadDateAndTime(){
 
         Date date = new Date();
