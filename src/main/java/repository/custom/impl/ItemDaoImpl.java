@@ -1,6 +1,7 @@
 package repository.custom.impl;
 
 import model.Item;
+import model.OrderDetails;
 import repository.custom.ItemDao;
 import util.CrudUtil;
 
@@ -106,5 +107,17 @@ public class ItemDaoImpl implements ItemDao {
                 item.getCode()  // WHERE condition comes last
         );
         return updated;
+    }
+    public boolean updateStock(List<OrderDetails> orderDetails) throws SQLException {
+        for (OrderDetails orderDetail : orderDetails){
+            boolean isUpdated = updateStock(orderDetail);
+            if(!isUpdated){
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean updateStock(OrderDetails orderDetails) throws SQLException {
+      return CrudUtil.execute("UPDATE items set  qtyOnHand= qtyOnHand-? WHERE code = ?",orderDetails.getQty(),orderDetails.getItemId());
     }
 }
