@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Customer;
 import service.ServiceFactory;
@@ -60,12 +57,56 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnAddCustomerOnAction(ActionEvent event) {
-        Customer customer = new Customer(txtId.getText(), txtName.getText(), txtAddress.getText(), Double.parseDouble(txtSalary.getText()));
+        //Validation if it is empty
+        if (txtId.getText().trim().isEmpty() ||
+                txtName.getText().trim().isEmpty() ||
+                txtAddress.getText().trim().isEmpty() ||
+                txtSalary.getText().trim().isEmpty()) {
+
+            showAlert(Alert.AlertType.ERROR, "Validation Error", "All fields must be filled out.");
+            return;
+        }
+        double salary=0;
+        //Data Type Validation in salary
+        try {
+            if (salary < 0) {
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "Salary must be a positive value.");
+                txtSalary.clear();
+                return;
+            }else {
+                salary = Double.parseDouble(txtSalary.getText().trim());
+            }
+        }catch (NumberFormatException e){
+            showAlert(Alert.AlertType.ERROR, "Validation Error", "Salary must be a valid number.");
+            txtSalary.clear();
+            return;
+        }
+        Customer customer = new Customer(txtId.getText().trim(), txtName.getText().trim(), txtAddress.getText().trim(), salary);
         try {
             serviceFactory.save(customer);
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Customer saved successfully!");
+            //clear the all field
+            clearFields();
         } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to save customer: " + e.getMessage());
             throw new RuntimeException(e);
         }
+    }
+    //show Alert
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+    private void clearFields() {
+        txtId.clear();
+        txtName.clear();
+        txtAddress.clear();
+        txtSalary.clear();
+        // For focus to first field
+        txtId.requestFocus();
     }
 
     @FXML
