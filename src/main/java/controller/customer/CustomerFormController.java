@@ -112,11 +112,21 @@ public class CustomerFormController implements Initializable {
     @FXML
     void btnLoadTableOnAction(ActionEvent event) {
         try {
+            List<Customer> customerList = serviceFactory.getAll();
+            if (customerList == null){
+                showAlert(Alert.AlertType.ERROR, "Data Error", "There is a Error, Refresh this.");
+                return;
+            }
+            tblCustomers.setItems(FXCollections.observableArrayList(customerList));
 
-            tblCustomers.setItems(FXCollections.observableArrayList(serviceFactory.getAll()));
+            if (customerList.isEmpty()) {
+                showAlert(Alert.AlertType.INFORMATION, "Information", "No customer records.");
+            }
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.err.println("Database error while loading customers: " + e.getMessage());
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR,"Load error","Failed to load cutomer Datar(Database issue)");
         }
     }
 
