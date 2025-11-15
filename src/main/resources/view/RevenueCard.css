@@ -1,0 +1,45 @@
+/* Style for the main container and background card effect */
+.revenue-card-pane {
+    /* Sets the default size and acts as the clipping boundary */
+    -fx-pref-width: 166px;
+    -fx-pref-height: 136px;
+    -fx-background-color: transparent; /* StackPane itself is transparent */
+}
+
+/* Style for the Rectangle (The actual card background) */
+#card-background {
+    -fx-fill: white;
+    /* Mimic the subtle lift/shadow effect */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0);
+}
+
+/* Style for the main text label */
+#content-label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 12px;
+    -fx-font-family: 'System';
+    /* Padding to keep text away from the edges */
+    -fx-padding: 15px;
+}
+
+/* Style for the 'chart' symbol (compromise using a label) */
+#chart-symbol {
+    -fx-text-fill: #1AA34A; /* Green color for the chart */
+    -fx-font-size: 30px;
+    /* Adjust positioning to align in the top right */
+    -fx-padding: 15px 10px 0 0;
+}
+
+/* Style for the percentage badge (compromise using a label) */
+/* This is the best we can do to simulate the badge without a separate container */
+#percentage-badge {
+    -fx-background-color: #E6F6E9; /* Light green background */
+    -fx-text-fill: #1AA34A; /* Dark green text */
+    -fx-font-weight: bold;
+    -fx-font-size: 10px;
+    -fx-padding: 3px 6px;
+    -fx-background-radius: 5px; /* Rounded corners for the badge */
+    /* Position badge to the bottom right corner */
+    -fx-translate-x: 45px; /* Manual horizontal adjustment */
+    -fx-translate-y: 45px; /* Manual vertical adjustment */
+}
