@@ -121,16 +121,16 @@ public class DashboardController implements Initializable {
         XYChart.Series<String, Number> series1 = new XYChart.Series<>();
         series1.setName("Week 28");
 
-        series1.getData().add(new XYChart.Data<>("Jan", 15));
-        series1.getData().add(new XYChart.Data<>("Feb", 25));
-        series1.getData().add(new XYChart.Data<>("Mar", 35));
-        series1.getData().add(new XYChart.Data<>("Apr", 20));
-        series1.getData().add(new XYChart.Data<>("May", 50));
-        series1.getData().add(new XYChart.Data<>("Jun", 60));
-        series1.getData().add(new XYChart.Data<>("Jul", 55));
-        series1.getData().add(new XYChart.Data<>("Aug", 45));
-        series1.getData().add(new XYChart.Data<>("Sep", 50));
-        series1.getData().add(new XYChart.Data<>("Oct", 70));
+        series1.getData().add(new XYChart.Data<>("Jan", 300));
+        series1.getData().add(new XYChart.Data<>("Feb", 400));
+        series1.getData().add(new XYChart.Data<>("Mar", 500));
+        series1.getData().add(new XYChart.Data<>("Apr", 200));
+        series1.getData().add(new XYChart.Data<>("May", 350));
+        series1.getData().add(new XYChart.Data<>("Jun", 150));
+        series1.getData().add(new XYChart.Data<>("Jul", 350));
+        series1.getData().add(new XYChart.Data<>("Aug", 450));
+        series1.getData().add(new XYChart.Data<>("Sep", 500));
+        series1.getData().add(new XYChart.Data<>("Oct", 700));
 
         // Create series 2
         XYChart.Series<String, Number> series2 = new XYChart.Series<>();
