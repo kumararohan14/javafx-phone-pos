@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.AreaChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="666.0" prefWidth="1454.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dashBoard.DashboardController">
+<BorderPane prefHeight="702.0" prefWidth="1424.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dashBoard.DashboardController">
     <stylesheets>
         <URL value="@styles.css" />
+        <URL value="@style.css" />
     </stylesheets>
     <left>
         <VBox prefWidth="250" styleClass="sidebar">
@@ -55,23 +54,104 @@
             </padding>
         </VBox>
     </left>
-    <center>
-        <AnchorPane fx:id="root" maxHeight="654.0" maxWidth="1206.0" minHeight="654.0" minWidth="1069.0" prefHeight="654.0" prefWidth="1206.0" styleClass="main-pane" stylesheets="@styles.css" BorderPane.alignment="CENTER">
+   <center>
+        <AnchorPane fx:id="root" maxHeight="900.0" maxWidth="1169.0" minHeight="667.0" minWidth="890.0" prefHeight="701.0" prefWidth="890.0" BorderPane.alignment="CENTER">
          <children>
-            <AreaChart fx:id="chartsArea" layoutX="14.0" layoutY="278.0" prefHeight="296.0" prefWidth="1012.0" >
-                <xAxis>
-                    <CategoryAxis label="Month" fx:id="xAxis" />
-                </xAxis>
-                <yAxis>
-                    <NumberAxis label="Revenue ($)" />
-                </yAxis>
-            </AreaChart>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="58.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="200.0">
-               <styleClass>
-                  <String fx:value="dashboard-card" />
-                  <String fx:value="card-green" />
-               </styleClass>
-            </Rectangle>
-         </children></AnchorPane>
-    </center>
+<!--            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="136.0" layoutX="66.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="166.0" />-->
+             <Pane layoutX="83.0" layoutY="79.0" prefHeight="160.0" prefWidth="198.0" stylesheets="@RevenueCard.css">
+                 <children>
+                     <Rectangle id="card-background" arcHeight="10.0" arcWidth="10.0" height="166.0" layoutX="2.0" layoutY="-3.0" width="196.0" />
+
+                     <Label id="content-label" layoutX="26.0" layoutY="15.0" prefHeight="47.0" prefWidth="139.0" text="💰 Revenue">
+                         <font>
+                             <Font size="12.0" />
+                         </font>
+                     </Label>
+      
+                     <Label id="content-label" layoutX="29.0" layoutY="38.0" prefHeight="60.0" prefWidth="119.0" style="-fx-font-size: 20px;" text="12,234">
+                         <font>
+                             <Font size="12.0" />
+                         </font>
+                     </Label>
+
+                     <Label id="content-label" layoutX="25.0" layoutY="73.0" prefHeight="45.0" prefWidth="137.0" style="-fx-font-size: 10px; -fx-text-fill: gray;" text="From last month">
+                         <font>
+                             <Font size="12.0" />
+                         </font>
+                     </Label>
+
+                     <Label id="chart-symbol" layoutX="151.0" layoutY="-10.0" text="〰" />
+
+                     <Label id="percentage-badge" layoutX="-4.0" layoutY="64.0" prefHeight="17.0" prefWidth="76.0" text="25%" />
+                 </children>
+             </Pane>
+            <Pane layoutX="331.0" layoutY="79.0" prefHeight="160.0" prefWidth="198.0" stylesheets="@RevenueCard.css">
+               <children>
+                  <Rectangle id="card-background" arcHeight="10.0" arcWidth="10.0" height="166.0" layoutX="2.0" layoutY="-3.0" width="196.0" />
+                  <Label id="content-label" layoutX="26.0" layoutY="15.0" prefHeight="47.0" prefWidth="139.0" text="💰 Revenue">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label id="content-label" layoutX="29.0" layoutY="38.0" prefHeight="60.0" prefWidth="119.0" style="-fx-font-size: 20px;" text="12,234">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label id="content-label" layoutX="25.0" layoutY="73.0" prefHeight="45.0" prefWidth="137.0" style="-fx-font-size: 10px; -fx-text-fill: gray;" text="From last month">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label id="chart-symbol" layoutX="151.0" layoutY="-10.0" text="〰" />
+                  <Label id="percentage-badge" layoutX="-4.0" layoutY="64.0" prefHeight="17.0" prefWidth="76.0" text="25%" />
+               </children>
+            </Pane>
+            <Pane layoutX="574.0" layoutY="79.0" prefHeight="160.0" prefWidth="198.0" stylesheets="@RevenueCard.css">
+               <children>
+                  <Rectangle id="card-background" arcHeight="10.0" arcWidth="10.0" height="166.0" layoutX="2.0" layoutY="-3.0" width="196.0" />
+                  <Label id="content-label" layoutX="26.0" layoutY="15.0" prefHeight="47.0" prefWidth="139.0" text="💰 Revenue">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label id="content-label" layoutX="29.0" layoutY="38.0" prefHeight="60.0" prefWidth="119.0" style="-fx-font-size: 20px;" text="12,234">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label id="content-label" layoutX="25.0" layoutY="73.0" prefHeight="45.0" prefWidth="137.0" style="-fx-font-size: 10px; -fx-text-fill: gray;" text="From last month">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label id="chart-symbol" layoutX="151.0" layoutY="-10.0" text="〰" />
+                  <Label id="percentage-badge" layoutX="-4.0" layoutY="64.0" prefHeight="17.0" prefWidth="76.0" text="25%" />
+               </children>
+            </Pane>
+            <Pane layoutX="834.0" layoutY="79.0" prefHeight="160.0" prefWidth="198.0" stylesheets="@RevenueCard.css">
+               <children>
+                  <Rectangle id="card-background" arcHeight="10.0" arcWidth="10.0" height="166.0" layoutX="2.0" layoutY="-3.0" width="196.0" />
+                  <Label id="content-label" layoutX="26.0" layoutY="15.0" prefHeight="47.0" prefWidth="139.0" text="💰 Revenue">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label id="content-label" layoutX="29.0" layoutY="38.0" prefHeight="60.0" prefWidth="119.0" style="-fx-font-size: 20px;" text="12,234">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label id="content-label" layoutX="25.0" layoutY="73.0" prefHeight="45.0" prefWidth="137.0" style="-fx-font-size: 10px; -fx-text-fill: gray;" text="From last month">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label id="chart-symbol" layoutX="151.0" layoutY="-10.0" text="〰" />
+                  <Label id="percentage-badge" layoutX="-4.0" layoutY="64.0" prefHeight="17.0" prefWidth="76.0" text="25%" />
+               </children>
+            </Pane>
+         </children>
+        </AnchorPane>
+   </center>
 </BorderPane>

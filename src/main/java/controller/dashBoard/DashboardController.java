@@ -5,10 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.chart.AreaChart;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,6 +18,16 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable {
 
     public AreaChart chartsArea;
+    public LineChart yearlyOrderRateChart;
+    public CategoryAxis xAxis;
+    public NumberAxis yAxis;
+    public VBox revenueCard;
+    public VBox costsCard;
+    public VBox profitsCard;
+    public VBox shipmentsCard;
+    public VBox cardRoot;
+    public Label titleLabel;
+    public Label changeLabel;
     @FXML
     private AnchorPane root;
 
@@ -72,30 +83,6 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("2025 Revenue");
 
-        // Add data points with months
-        series.getData().add(new XYChart.Data<>("January", 5000));
-        series.getData().add(new XYChart.Data<>("February", 6800));
-        series.getData().add(new XYChart.Data<>("March", 7200));
-        series.getData().add(new XYChart.Data<>("April", 8000));
-        series.getData().add(new XYChart.Data<>("May", 7800));
-        series.getData().add(new XYChart.Data<>("June", 8500));
-        series.getData().add(new XYChart.Data<>("July", 9000));
-        series.getData().add(new XYChart.Data<>("August", 8800));
-        series.getData().add(new XYChart.Data<>("September", 8200));
-        series.getData().add(new XYChart.Data<>("October", 9500));
-        series.getData().add(new XYChart.Data<>("November", 9700));
-        series.getData().add(new XYChart.Data<>("December", 10000));
-
-        chartsArea.getData().add(series);
-
-        // Optional: tooltips
-        for (XYChart.Data<String, Number> data : series.getData()) {
-            Tooltip.install(data.getNode(), new Tooltip(
-                    data.getXValue() + ": $" + data.getYValue()
-            ));
-        }
     }
 }

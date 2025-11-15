@@ -1,0 +1,119 @@
+/* Color Palette */
+.root-pane {
+    -fx-background-color: #F7F8FC; /* Light gray background */
+}
+
+/* --- Sidebar Styling --- */
+.sidebar {
+    -fx-background-color: white;
+}
+
+.logo-text {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3D4451;
+}
+
+.app-title {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #A0AEC0;
+    -fx-padding: 15px 0 5px 0;
+}
+
+.menu-item {
+    -fx-background-color: transparent;
+    -fx-padding: 10px 10px 10px 0px; /* Padding to align icon/text */
+    -fx-cursor: hand;
+}
+
+.menu-item:hover {
+    -fx-background-color: #EEF1F7;
+}
+
+/* Selected Logistics Item */
+.menu-item-selected {
+    -fx-background-color: #7966FF; /* Purple background */
+    -fx-text-fill: white;
+    -fx-padding: 10px 10px 10px 20px;
+    -fx-border-radius: 0 5px 5px 0;
+    -fx-background-radius: 0 5px 5px 0;
+    -fx-font-weight: bold;
+}
+.menu-item-selected .label {
+     -fx-text-fill: white;
+}
+
+/* Sub Menu for Analytics, Tracking, Data */
+.sub-menu {
+    -fx-padding: 5px 0 10px 30px; /* Indentation */
+}
+.sub-menu .menu-item {
+    -fx-padding: 5px 0 5px 0;
+}
+
+.badge-new {
+    -fx-background-color: #E2445C;
+    -fx-text-fill: white;
+    -fx-padding: 2px 5px;
+    -fx-font-size: 9px;
+    -fx-background-radius: 10;
+}
+
+/* --- Header Styling --- */
+.header {
+    -fx-background-color: transparent;
+}
+
+.search-box {
+    -fx-background-color: white;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 5px;
+    -fx-max-width: 300px;
+}
+
+.search-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.online-status {
+    -fx-font-size: 10px;
+    -fx-text-fill: #A0AEC0;
+}
+
+/* --- Dashboard Cards Styling --- */
+.stat-card, .chart-card {
+    -fx-background-color: white;
+    -fx-padding: 15px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 0); /* Subtle Shadow */
+    -fx-min-width: 200px;
+}
+
+.card-title, .chart-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #A0AEC0;
+}
+
+.card-value, .cost-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3D4451;
+}
+
+.card-change, .change-up, .change-down {
+    -fx-padding: 2px 5px;
+    -fx-background-radius: 10;
+    -fx-font-size: 12px;
+}
+
+.change-up {
+    -fx-background-color: #E6FFFA;
+    -fx-text-fill: #38A169;
+}
+
+.change-down {
+    -fx-background-color: #FED7D7;
+    -fx-text-fill: #E53E3E;
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="cardRoot" spacing="5.0" styleClass="stat-card" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dashBoard.StatCardController">
+    <children>
+        <Label fx:id="titleLabel" styleClass="card-title" text="Title" />
+
+        <HBox alignment="CENTER_LEFT" spacing="5.0">
+            <Label fx:id="changeLabel" styleClass="card-change" text="+00%" />
+            <Region prefHeight="20.0" prefWidth="50.0" style="-fx-background-color: lightgray;" />
+        </HBox>
+    </children>
+</VBox>
