@@ -34,5 +34,6 @@
       <Button layoutX="728.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnDeleteCustomerOnAction" styleClass="myButton" stylesheets="@styles.css" text="Delete" />
       <Button layoutX="616.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnUpdateCustomerOnAction" styleClass="myButton" stylesheets="@styles.css" text="Update" />
       <Button layoutX="510.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnAddCustomerOnAction" styleClass="myButton" stylesheets="@styles.css" text="Add" />
+      <Button layoutX="804.0" layoutY="532.0" mnemonicParsing="false" onAction="#btnReportGenerateOnAction" prefHeight="38.0" prefWidth="140.0" styleClass="myButton" stylesheets="@styles.css" text="Report" />
     </children>
 </AnchorPane>
