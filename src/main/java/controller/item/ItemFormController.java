@@ -15,9 +15,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Customer;
 import model.Item;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import service.ServiceFactory;
 import service.custom.CustomerService;
 import service.custom.ItemService;
+import util.DBConnection;
 import util.ServiceType;
 
 import java.net.URL;
@@ -280,5 +285,17 @@ public class ItemFormController implements Initializable {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public void btnReportItemOnAction(ActionEvent actionEvent) {
+        try{
+            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Report/item/Flower_Landscape.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "Item_report_2025.pdf");
+            JasperViewer.viewReport(jasperPrint,false);
+        }catch (JRException | SQLException e){
+            throw new RuntimeException(e);
+        }
     }
 }

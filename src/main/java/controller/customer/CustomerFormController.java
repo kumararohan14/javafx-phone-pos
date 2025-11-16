@@ -8,11 +8,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Customer;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import service.ServiceFactory;
 import service.SuperService;
 import service.custom.CustomerService;
 import service.custom.ItemService;
 import service.custom.impl.CustomerServiceImpl;
+import util.DBConnection;
 import util.ServiceType;
 
 import java.net.URL;
@@ -173,6 +178,18 @@ public class CustomerFormController implements Initializable {
         try {
             serviceFactory.update(customer);
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void btnReportGenerateOnAction(ActionEvent actionEvent) {
+        try{
+            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Report/Blank_A4.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "customer_report_2025.pdf");
+            JasperViewer.viewReport(jasperPrint,false);
+        }catch (JRException | SQLException e){
             throw new RuntimeException(e);
         }
     }
