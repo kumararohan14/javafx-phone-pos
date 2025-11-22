@@ -109,6 +109,7 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable {
 
     public Label txtRevenue;
+    public Label txtCostPrice;
     @FXML
     private AnchorPane root;
 
@@ -211,10 +212,18 @@ public class DashboardController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    public void setItemCost(){
+        try {
+            txtCostPrice.setText(String.format("%.0f",serviceFactoryType.getItemsCostPrice()));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadChartData();
         setRevenue();
+        setItemCost();
     }
 }

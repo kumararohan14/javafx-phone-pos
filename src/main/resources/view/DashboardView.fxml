@@ -117,7 +117,7 @@
                                 <Region HBox.hgrow="ALWAYS" />
                                 <Label style="-fx-font-size: 16px; -fx-text-fill: #EF4444;" text="〰️" />
                             </HBox>
-                            <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #1F2937;" text="2,495" />
+                            <Label fx:id="txtCostPrice" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #1F2937;" text="2,495" />
                             <HBox alignment="CENTER_LEFT" spacing="8">
                                 <Label style="-fx-background-color: #FEE2E2; -fx-text-fill: #EF4444; -fx-font-size: 11px; -fx-font-weight: bold; -fx-padding: 3 8; -fx-background-radius: 6;" text="↘ 5%" />
                                 <Label style="-fx-font-size: 12px; -fx-text-fill: #9CA3AF;" text="From last month" />
