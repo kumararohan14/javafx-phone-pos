@@ -10,5 +10,6 @@ import java.util.List;
 public interface SalesDao extends CrudRepository<Sales,String> {
     List<SalesCharts> getSalesChartRecord() throws SQLException;
     Double getRevenue() throws SQLException;
+    Double getItemsCostPrice() throws SQLException;
 
 }

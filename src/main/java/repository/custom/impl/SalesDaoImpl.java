@@ -36,6 +36,21 @@ public class SalesDaoImpl implements SalesDao {
     }
 
     @Override
+    public Double getItemsCostPrice() throws SQLException {
+        Double montlyItemCost=0.00;
+        ResultSet resultSet = CrudUtil.execute("SELECT SUM(od.qty * i.costPrice) AS TotalCostOfSales\n" +
+                "FROM sales s\n" +
+                "JOIN orderdetail od ON s.orderId = od.orderId\n" +
+                "JOIN items i ON od.itemCode = i.code\n" +
+                "WHERE MONTH(s.saleDate) = MONTH(CURDATE()) \n" +
+                "  AND YEAR(s.saleDate) = YEAR(CURDATE());");
+        if (resultSet.next()){
+            montlyItemCost = resultSet.getDouble("TotalCostOfSales");
+        }
+        return montlyItemCost;
+    }
+
+    @Override
     public List<Sales> getAll() throws SQLException {
         return List.of();
     }
