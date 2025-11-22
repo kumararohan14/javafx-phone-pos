@@ -94,44 +94,52 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import service.ServiceFactory;
+import service.SuperService;
+import service.custom.DashBoardService;
+import util.ServiceType;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
+    public Label txtRevenue;
     @FXML
     private AnchorPane root;
 
     @FXML
     private LineChart<String, Number> lineChart;
+    DashBoardService serviceFactoryType = ServiceFactory.getInstance().getServiceFactoryType(ServiceType.DASHBOARD);
 
-    @FXML
-    public void initialize() {
-        // Make sure lineChart is not null before using it
-        if (lineChart != null) {
-            loadChartData();
-        }
-    }
+//    @FXML
+//    public void initialize() {
+//        // Make sure lineChart is not null before using it
+//        if (lineChart != null) {
+//            loadChartData();
+//        }
+//    }
 
     private void loadChartData() {
         // Create series 1
-        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
-        series1.setName("Week 28");
+       XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("2024 Sales");
 
-        series1.getData().add(new XYChart.Data<>("Jan", 300));
-        series1.getData().add(new XYChart.Data<>("Feb", 400));
-        series1.getData().add(new XYChart.Data<>("Mar", 500));
-        series1.getData().add(new XYChart.Data<>("Apr", 200));
-        series1.getData().add(new XYChart.Data<>("May", 350));
-        series1.getData().add(new XYChart.Data<>("Jun", 150));
-        series1.getData().add(new XYChart.Data<>("Jul", 350));
-        series1.getData().add(new XYChart.Data<>("Aug", 450));
-        series1.getData().add(new XYChart.Data<>("Sep", 500));
-        series1.getData().add(new XYChart.Data<>("Oct", 700));
 
+        try {
+            serviceFactoryType.getSalesCharts().forEach(salesCharts -> {
+                        series.getData().add(new XYChart.Data<>(salesCharts.getMonth(), salesCharts.getSales()));
+                    }
+            );
+        }catch (RuntimeException r){
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         // Create series 2
         XYChart.Series<String, Number> series2 = new XYChart.Series<>();
         series2.setName("Week 32");
@@ -148,8 +156,9 @@ public class DashboardController implements Initializable {
         series2.getData().add(new XYChart.Data<>("Oct", 55));
 
         // Add series to chart
-        lineChart.getData().addAll(series1, series2);
+        lineChart.getData().addAll( series,series2);
     }
+
 
     @FXML
     public void btnViewOrderFormOnAcction() {
@@ -195,9 +204,17 @@ public class DashboardController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    public void setRevenue(){
+        try {
+            txtRevenue.setText(String.format("%.0f",serviceFactoryType.getRevenue()));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadChartData();
+        setRevenue();
     }
 }

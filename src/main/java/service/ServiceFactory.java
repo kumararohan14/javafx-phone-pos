@@ -3,10 +3,8 @@ package service;
 import repository.custom.impl.CustomerDaoImpl;
 import repository.custom.impl.ItemDaoImpl;
 import service.custom.OrderService;
-import service.custom.impl.CustomerServiceImpl;
+import service.custom.impl.*;
 
-import service.custom.impl.ItemServiceImpl;
-import service.custom.impl.OrderServiceImpl;
 import util.ServiceType;
 
 public class ServiceFactory {
@@ -21,6 +19,8 @@ public class ServiceFactory {
             case CUSTOMER : return (T) new CustomerServiceImpl();
             case ITEM:return (T) new ItemServiceImpl();
             case ORDER:return (T) new OrderServiceImpl();
+            case SALES:return (T) new SalesServiceImpl();
+            case DASHBOARD:return (T) new DashBoardServiceImpl();
         }
         return null;
     }
